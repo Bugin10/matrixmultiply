@@ -23,7 +23,7 @@ unsafe impl<T> Send for Ptr<*mut T> { }
 ///
 /// Unsafe since it is thread safety critical to use the raw pointer correctly.
 #[allow(non_snake_case)]
-pub(crate) unsafe fn Ptr<T>(ptr: T) -> Ptr<T> { Ptr { ptr } }
+pub(crate) unsafe fn Ptr<T: Copy>(ptr: T) -> Ptr<T> { Ptr { ptr } }
 
 impl<T> Ptr<T> {
     /// Get the pointer
